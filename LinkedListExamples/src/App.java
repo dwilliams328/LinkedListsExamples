@@ -4,6 +4,7 @@ public class App {
                 //Initialize linkedList
                 SinglyLinkedList llist = new SinglyLinkedList();
 
+                //push data to LL Stack
                 llist.push(10);
                 llist.push(50);
                 llist.push(5);
@@ -12,20 +13,30 @@ public class App {
                 llist.push(12);
                 llist.push(26);
                 llist.push(22);
-        
+
+                System.out.println("LL: ");
                 llist.printList();
         
-                //Sort LL elements
+                //Sort in place
+                System.out.println("LL Sorted: ");
                 SelectionSort.sort(llist.head);
-
-                System.out.println("Head: " + llist.head.data);
-                System.out.println("Tail: " + llist.tail.data);
-
                 llist.printList();
+                System.out.println();
+
+                System.out.println("Head Node: " + llist.head.data);
+                System.out.println("Tail Node: " + llist.tail.data);
+                System.out.println();
 
                 //Search LL for x element
-                System.out.println(SearchLL.search(llist.head, 26) + " In in the LinkedList");
-                System.out.println(SearchLL.search(llist.head, 100) + " Not in List");
+                System.out.println("Search for element: " + SearchLL.search(llist.head, 26) + " In in the LinkedList");
+                System.out.println("Search for element: " + SearchLL.search(llist.head, 100) + " Not in List");
+                System.out.println();
+
+                //Save reference to reversed LinkList & print
+                llist.head = ReverseLL.reverse(llist.head);
+                System.out.println("Reversed LL: ");
+                llist.printList();
+                
     }
 }
 
@@ -83,4 +94,5 @@ class SinglyLinkedList{
             temp = temp.next;
         }
     }
+
 }
