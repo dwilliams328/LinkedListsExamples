@@ -2,7 +2,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
                 //Initialize linkedList
-                SingleLinkedList llist = new SingleLinkedList();
+                SinglyLinkedList llist = new SinglyLinkedList();
 
                 llist.push(10);
                 llist.push(50);
@@ -22,11 +22,15 @@ public class App {
                 System.out.println("Tail: " + llist.tail.data);
 
                 llist.printList();
+
+                //Search LL for x element
+                System.out.println(SearchLL.search(llist.head, 26) + " In in the LinkedList");
+                System.out.println(SearchLL.search(llist.head, 100) + " Not in List");
     }
 }
 
 //Construct LinkedList with push() mechanism 
-class SingleLinkedList{
+class SinglyLinkedList{
     
     class Node{
 

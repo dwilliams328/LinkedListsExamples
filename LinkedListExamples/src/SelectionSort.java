@@ -1,4 +1,4 @@
-public class SelectionSort extends SingleLinkedList{
+public class SelectionSort extends SinglyLinkedList{
 
 	public static void sort(Node head) {
 
