@@ -78,7 +78,7 @@ class SinglyLinkedList{
         //Move the head to point to appropriate new Node
         head = new_node;
         
-        //Tail should remain fixed to the bottom of stack in push operation
+        //Tail should remain fixed to the bottom of stack in push operation, unless manually changed
         if(counter == 0){
             tail = new_node;
         }
