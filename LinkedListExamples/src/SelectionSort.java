@@ -15,6 +15,7 @@ public class SelectionSort extends SinglyLinkedList{
                 if (min.data > r.data){
                     min = r;
                 }
+
                 r = r.next;
             }
 

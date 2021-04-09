@@ -3,24 +3,35 @@ public class App {
     public static void main(String[] args) throws Exception {
                 //Initialize linkedList
                 SinglyLinkedList llist = new SinglyLinkedList();
+                SinglyLinkedList llist2 = new SinglyLinkedList();
 
                 //push data to LL Stack
                 llist.push(10);
                 llist.push(50);
                 llist.push(5);
                 llist.push(20);
-                llist.push(39);
-                llist.push(12);
-                llist.push(26);
-                llist.push(22);
 
+                llist2.push(39);
+                llist2.push(12);
+                llist2.push(26);
+                llist2.push(22);
+
+                SelectionSort.sort(llist.head);
+                llist.printList(llist.head);
+                System.out.println("-------------------------");
+                SelectionSort.sort(llist2.head);
+                llist2.printList(llist2.head);
+
+/*
                 System.out.println("LL: ");
-                llist.printList();
-        
+                llist.printList(llist.head);
+                System.out.println("Head Node: " + llist.head.data);
+                System.out.println("Tail Node: " + llist.tail.data);
+
                 //Sort in place
                 System.out.println("LL Sorted: ");
                 SelectionSort.sort(llist.head);
-                llist.printList();
+                llist.printList(llist.head);
                 System.out.println();
 
                 System.out.println("Head Node: " + llist.head.data);
@@ -35,14 +46,22 @@ public class App {
                 //Save reference to reversed LinkList & print
                 llist.head = ReverseLL.reverse(llist.head);
                 System.out.println("Reversed LL: ");
-                llist.printList();
-                
+                llist.printList(llist.head);
+*/
+
     }
 }
 
 //Construct LinkedList with push() mechanism 
 class SinglyLinkedList{
-    
+
+    //Head of list
+    Node head;
+    //Tail of list
+    Node tail;
+    //Size of LinkedList
+    public static int counter = 0;
+
     class Node{
 
         // Node(s) member variables for data & Random Access
@@ -56,14 +75,6 @@ class SinglyLinkedList{
             this.next = null;
         }
     }
-
-    //Head of list
-    Node head;
-    //Tail of list
-    Node tail;
-
-    //Size of LinkedList
-    public static int counter = 0;
 
     // Use push() method to add Node at the top(head) of the 
     // 'Stack' represented by LinkedList
@@ -86,13 +97,34 @@ class SinglyLinkedList{
         counter++;
     }
 
-    public void printList() {
+        /* Method to insert a node at 
+    the end of the linked list */
+    public void addToTail(int new_data) {
+        if (head == null) {
+            push(new_data);
+        }
+        else {
+            //Create island Node for later assignments
+            Node new_node = new Node(new_data);
+            //Capture current Tail of list
+            Node currentTail = tail;
+
+            //Connect Nodes
+            currentTail.next = new_node;
+
+            //assign new node as tail
+            tail = new_node;
+        }
+    }
+
+    public void printList(Node head){
+        //Capture head node
         Node temp = head;
-        
-        while(temp != null) {
+
+        //visit every node connect & display content
+        while (temp != null) {
             System.out.println(temp.data);
             temp = temp.next;
         }
     }
-
 }
