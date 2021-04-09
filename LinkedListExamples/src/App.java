@@ -16,37 +16,55 @@ public class App {
                 llist2.push(26);
                 llist2.push(22);
 
+                //Selection Sort
+
                 SelectionSort.sort(llist.head);
+                System.out.println("LL #1: ");
                 llist.printList(llist.head);
                 System.out.println("-------------------------");
                 SelectionSort.sort(llist2.head);
+                System.out.println("LL #2: ");
                 llist2.printList(llist2.head);
 
-/*
-                System.out.println("LL: ");
-                llist.printList(llist.head);
-                System.out.println("Head Node: " + llist.head.data);
-                System.out.println("Tail Node: " + llist.tail.data);
-
-                //Sort in place
-                System.out.println("LL Sorted: ");
-                SelectionSort.sort(llist.head);
-                llist.printList(llist.head);
-                System.out.println();
-
-                System.out.println("Head Node: " + llist.head.data);
-                System.out.println("Tail Node: " + llist.tail.data);
-                System.out.println();
-
-                //Search LL for x element
-                System.out.println("Search for element: " + SearchLL.search(llist.head, 26) + " In in the LinkedList");
-                System.out.println("Search for element: " + SearchLL.search(llist.head, 100) + " Not in List");
-                System.out.println();
 
                 //Save reference to reversed LinkList & print
+
                 llist.head = ReverseLL.reverse(llist.head);
-                System.out.println("Reversed LL: ");
+                System.out.println("Reversed LL #1: ");
                 llist.printList(llist.head);
+
+                llist2.head = ReverseLL.reverse(llist2.head);
+                System.out.println("Reversed LL #2: ");
+                llist.printList(llist2.head);
+
+                //Search LL for x element
+
+                int x = 20;
+                int y = 99;
+
+                //List #1
+                System.out.println("Search for element " + x + ": " + SearchLL.search(llist.head, x));
+                System.out.println("Search for element " + y + ": " + SearchLL.search(llist.head, y));
+                System.out.println();
+
+                x = 26;
+                y = 100;
+
+                //List #2
+                System.out.println("Search for element " + x + ": " + SearchLL.search(llist2.head, x));
+                System.out.println("Search for element " + y + ": " + SearchLL.search(llist2.head, y));
+                System.out.println();
+
+                System.out.println("Head Node: " + llist.head.data);
+                System.out.println("Tail Node: " + llist.tail.data);
+
+                System.out.println("Head Node: " + llist2.head.data);
+                System.out.println("Tail Node: " + llist2.tail.data);
+
+//                System.out.println("Merge Sort: ");
+//                MergeSort.mergeSort(llist,llist2);
+/*
+
 */
 
     }
@@ -99,21 +117,21 @@ class SinglyLinkedList{
 
         /* Method to insert a node at 
     the end of the linked list */
-    public void addToTail(int new_data) {
+    public void addToTail(Node node) throws Exception {
         if (head == null) {
-            push(new_data);
+            throw new Exception("Can't be null");
         }
         else {
             //Create island Node for later assignments
-            Node new_node = new Node(new_data);
+            Node currentNode = node;
             //Capture current Tail of list
             Node currentTail = tail;
 
             //Connect Nodes
-            currentTail.next = new_node;
+            currentTail.next = currentNode;
 
             //assign new node as tail
-            tail = new_node;
+            tail = currentNode;
         }
     }
 

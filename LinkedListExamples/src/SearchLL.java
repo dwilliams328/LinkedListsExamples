@@ -1,7 +1,7 @@
 public class SearchLL extends SinglyLinkedList{
 
 	// Write a linear sort program to search element in linked list
-    public static int search(Node head, int x){
+    public static boolean search(Node head, int x){
 
         //Initialize head pointer node as, current,
         // starting point of LL traversal.
@@ -10,7 +10,7 @@ public class SearchLL extends SinglyLinkedList{
         while(current != null){
             if(current.data == x){
                 //data found, RETURN
-                return x;
+                return true;
             }
 
             // Continue to next node in LL structure if reached
@@ -19,7 +19,7 @@ public class SearchLL extends SinglyLinkedList{
         }
 
         //Data not found
-        return -1;
+        return false;
     }
 }
 
